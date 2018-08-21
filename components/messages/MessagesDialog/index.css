@@ -1,0 +1,11 @@
+@import "mixins";
+
+.wrapper {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+.messages {
+
+}

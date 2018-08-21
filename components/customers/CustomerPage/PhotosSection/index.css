@@ -1,0 +1,39 @@
+@import "colors";
+@import "mixins";
+
+section.photos-section {
+  & h3 { margin-top: 0; }
+}
+
+.actions {
+  float: right;
+}
+
+.photos {
+  clear: both;
+  margin-top: 25px;
+}
+
+.photo {
+  padding: 8px !important;
+  margin: 0 10px 10px 0;
+  display: inline-block;
+
+  & img {
+    display: inline-block;
+    height: 100px;
+    border-radius: 3px;
+  }
+}
+
+.date {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: $dark-gray-1;
+  margin-top: 6px;
+}
+
+.photos-wrapper {
+  margin-bottom: 35px;
+}

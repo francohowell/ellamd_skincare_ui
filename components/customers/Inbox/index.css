@@ -1,0 +1,23 @@
+@import "mixins";
+
+.inbox {
+}
+
+.noCustomerSelected {
+  background-color: white;
+  padding: 10px 20px;
+  height: 400px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.customers {
+  display: inline-block;
+  width: 25%;
+  vertical-align: top;
+}
+
+.messages {
+  display: inline-block;
+  width: 75%;
+}

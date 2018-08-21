@@ -1,0 +1,71 @@
+@import "colors";
+@import "animation";
+@import "mixins";
+
+.visit {
+  display: flex;
+  padding: 20px 0 0;
+}
+
+.number-and-date {
+  margin-right: 25px;
+  flex: 0 1;
+  white-space: nowrap;
+}
+
+.number {
+  font-size: 18px;
+  display: block;
+  margin: 8px 0 0;
+}
+
+.date {
+  color: $gray-3;
+  font-size: 16px;
+}
+
+.status-sections {
+  flex: 1 0;
+  display: flex;
+  border: 1px solid $light-gray-4;
+  border-radius: 10px;
+  align-items: center;
+  background: rgba($white, 0.5);
+  padding-top: 4px;
+}
+
+.section {
+  position: relative;
+  padding: 10px 25px 10px 10px;
+  flex: 0 0 14.29%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1;
+
+  &::after {
+    content: "→";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    color: $gray-2;
+  }
+
+  &:last-child {
+    padding-right: 0;
+
+    &::after { display: none; }
+  }
+}
+
+.completed {
+  color: $gray-2;
+}
+
+.in-progress {
+  font-weight: 700;
+}
+
+.pending {
+  color: $dark-gray-3;
+}

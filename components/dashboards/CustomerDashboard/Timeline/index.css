@@ -1,0 +1,96 @@
+@import "colors";
+
+.controls-container {
+  display: flex;
+  margin: 20px -10px 10px;
+
+  & p {
+    line-height: 20px;
+    font-size: 16px;
+    color: $gray-4;
+    margin-top: 10px;
+  }
+}
+
+.timeline-wrapper {
+  margin-right: 50px;
+}
+
+.control-wrapper {
+  flex: 1;
+  margin: 0 10px;
+
+  & > div {
+    margin: 0;
+    width: 100%;
+  }
+
+  & :global(.pt-button.pt-large) {
+    width: 100%;
+    text-align: left;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    min-height: 68px;
+    border: 2px solid $light-gray-3;
+    background: $white;
+
+    &:hover {
+      border: 2px solid $light-gray-3;
+      background: $light-gray-1;
+    }
+
+    &:global(.pt-intent-primary) {
+      border: 2px solid $blue-5;
+      background: $blue-4;
+
+      &:hover {
+        background: $blue-5;
+      }
+    }
+
+    & > span {
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+.search-container {
+  display: inline-flex;
+  margin: 0 0 65px 250px;
+  padding: 20px 0 12px 24px;
+  border-radius: 4px;
+  background: $light-gray-3;
+}
+
+.search-query-input-wrapper {
+  flex: 1;
+  overflow: auto;
+  display: none;
+}
+
+.filter-label {
+  margin-right: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $gray-3;
+}
+
+.search-story-type-visibilities-wrapper {
+  flex: 1;
+}
+
+.search-visibility-checkbox-wrapper {
+  display: inline-block;
+  margin-right: 30px;
+  font-size: 20px;
+  color: $gray-5;
+}
+
+.control-button {
+  background-color: #213240;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}

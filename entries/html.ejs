@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
+
+
+    <%# Inject head tags (meta tags, title, etc.): %>
+    <% if (locals.helmet) { %>
+      <%- locals.helmet.title.toString() %>
+      <%- locals.helmet.meta.toString() %>
+      <%- locals.helmet.link.toString() %>
+      <%- locals.helmet.base.toString() %>
+      <%- locals.helmet.style.toString() %>
+      <%- locals.helmet.script.toString() %>
+      <%- locals.helmet.noscript.toString() %>
+    <% } %>
+
+    <%# Inject favicon: %>
+    <% if (locals.faviconPath) { %>
+      <link rel="shortcut icon" type="image/png" href="<%- locals.faviconPath %>" />
+    <% } %>
+
+    <%# Inject critical CSS (the CSS required to render the current page): %>
+    <% if (locals.css) { %>
+      <style>
+        <%- locals.css %>
+      </style>
+    <% } %>
+
+    <%# Inject the client CSS bundle, loaded synchronously: %>
+    <% if (locals.shouldInjectBundle) { %>
+      <link rel="stylesheet" type="text/css" href="/build/client.css?<%- Date.now() %>"/>
+    <% } %>
+
+    <script>
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:563707,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script src="https://cdn.ravenjs.com/3.17.0/raven.min.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+        analytics.load("<%- process.env.SEGMENT_WRITE_KEY %>");
+        analytics.page();
+        analytics.track(`Hit ${window.location.pathname}`);
+      }}();
+</script>
+  </head>
+
+  <body>
+    <%# Our app's entry point: %>
+    <div id="root">
+      <% if (locals.html) { %>
+        <%- locals.html %>
+      <% } %>
+    </div>
+
+    <%# Inject the client JS bundle, loaded asynchronously: %>
+    <%# HACK: Instead of using a timestamp to bust caches, we should absolutely absolutely be
+          fingerprinting the file to save this request. %>
+    <% if (locals.shouldInjectBundle) { %>
+      <script async defer src="/build/client.js?<%- Date.now() %>"></script>
+    <% } %>
+  </body>
+</html>

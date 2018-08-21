@@ -1,0 +1,266 @@
+@import "colors";
+@import "fonts";
+@import "mixins";
+
+.columns {
+  display: flex;
+  margin-left: -40px;
+
+  & > * {
+    flex: 1 0 !important;
+    margin-left: 40px !important;
+  }
+
+  @media (max-width: $phone-breakpoint) {
+    display: block;
+    margin-left: 0;
+
+    & > * {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+.skin-concerns-and-type {
+  & :global(.pt-label) > h3 {
+    margin-bottom: 5px;
+  }
+}
+
+.heading-and-steps {
+  text-align: center;
+}
+
+.legal-notes {
+  font-size: 14px;
+  color: $gray-3;
+}
+
+.onboarding-form {
+  max-width: 700px;
+  margin: 40px auto 50px;
+
+  & :global(.pt-select) select {
+    width: 100%;
+  }
+
+  & :global(.pt-label) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: $phone-breakpoint) {
+    margin-top: 10px;
+    padding-bottom: 25px;
+  }
+
+  & hr {
+    margin: 40px 0;
+    display: block;
+    border: 0;
+    height: 1px;
+    background: rgba($black, 0.2);
+  }
+}
+
+.shipping-information {
+  margin-bottom: 25px;
+
+  & :global(.pt-label) {
+    margin-bottom: 10px;
+  }
+}
+
+.steps {
+  list-style-type: none;
+  padding-left: 0;
+
+  & .arrow {
+    font-size: 24px;
+    margin: 5px 5px 0;
+    min-width: 0;
+    color: rgba($black, 0.5);
+
+    @media (max-width: $phone-breakpoint) {
+      display: none;
+    }
+  }
+
+  & > li {
+    line-height: 1.3;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    color: $gray-3;
+    text-align: center;
+    display: inline-block;
+    margin: 0 15px 25px;
+    vertical-align: top;
+    min-width: 110px;
+
+    @media (max-width: $phone-breakpoint) {
+      min-width: 0;
+      margin-right: 15px;
+    }
+  }
+
+  & .number {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    line-height: 44px;
+    text-align: center;
+    border: 1px solid rgba($black, 0.25);
+    display: block;
+    font-weight: bold;
+    color: $gray-3;
+    margin: 0 auto 10px;
+  }
+
+  & .active {
+    color: $dark-gray-1;
+
+    & .number {
+      background: rgba($blue-3, 0.5);
+      border: 1px solid transparent;
+      color: $dark-gray-3;
+    }
+  }
+}
+
+.actions {
+  text-align: right;
+}
+
+.heading {
+  font-family: $serif-stack;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.description {
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto 25px;
+}
+
+.submit {
+  margin: 10px 0 0;
+}
+
+.back-button {
+  float: left;
+}
+
+.enter {
+  opacity: 0;
+  margin: 0;
+  max-height: 0;
+}
+
+.enter-active {
+  opacity: 1;
+  max-height: 58px;
+  margin: 25px 0 15px;
+  transition:
+    max-height $slow $ease-in,
+    margin $slow $ease-in,
+    opacity $fast linear;
+}
+
+.leave {
+  opacity: 1;
+  max-height: 58px;
+  margin: 25px 0 15px;
+}
+
+.leave-active {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  transition:
+    max-height $slow $ease-in,
+    margin $slow $ease-in,
+    opacity $fast linear;
+}
+
+.icon {
+  margin-left: 5px;
+  position: relative;
+  top: -1px;
+}
+
+.error-wrapper {
+  margin: 15px 0 0;
+
+  & > div {
+    margin-bottom: 15px;
+  }
+}
+
+.date-of-birth-and-sex > *:first-child {}
+
+.payment-form {
+  & p {
+    line-height: 1.3;
+    padding-bottom: 25px;
+  }
+
+  & ul {
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  & li {
+    margin-bottom: 10px;
+  }
+
+  & .columns .priceColumn {
+    flex: 0 1 !important;
+  }
+}
+
+h3.label {
+  margin-bottom: 20px;
+}
+
+.promo-code-form {
+  margin-bottom: 25px;
+}
+
+.old-price {
+  color: $gray-3;
+  text-decoration: line-through;
+}
+
+.information {
+  border-radius: 3px;
+  margin: 15px 0 20px;
+  padding: 25px 30px 0;
+  background: rgba($blue-3, 0.1);
+
+  & ul {
+    padding-bottom: 20px;
+  }
+
+  & img {
+    opacity: 0.9;
+    margin-bottom: 15px;
+    height: 90px;
+  }
+
+  & .price {
+    font-family: $serif-stack;
+    font-weight: 200;
+    font-size: 48px;
+  }
+
+  & .later-price {
+    font-family: $serif-stack;
+    display: inline-block;
+    font-size: 24px;
+    margin-left: 10px;
+    position: relative;
+    top: -25px;
+  }
+}

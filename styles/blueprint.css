@@ -1,0 +1,223 @@
+@import "animation";
+@import "colors";
+@import "mixins";
+
+:global {
+  & body.pt-overlay-open { overflow: visible !important; }
+
+  & .pt-fieldset {
+    border: none;
+    padding: 0;
+  }
+
+  & .pt-button {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-top: 3px;
+    font-size: 14px;
+
+    &.pt-large {
+      padding-top: 3px;
+      font-size: 14px;
+    }
+
+    &.pt-small {
+      padding-top: 3px;
+    }
+
+    &.pt-intent-primary {
+      background: $blue-3;
+      box-shadow: none;
+
+      &:hover {
+        background: $blue-4;
+        box-shadow: none;
+      }
+    }
+
+    &:not([class*="pt-intent-"]) {
+      background: transparent;
+      box-shadow: none;
+      border: 1px solid rgba($black, 0.25);
+
+      &:hover {
+        background: transparent;
+        box-shadow: none;
+        border: 1px solid rgba($black, 0.5);
+      }
+    }
+
+    &.pt-minimal {
+      background: transparent;
+      color: $blue-3;
+
+      &:hover {
+        color: $blue-5;
+      }
+    }
+  }
+
+  & .pt-toast .pt-button:not([class*="pt-intent-"]) {
+    border: none;
+  }
+
+  & .pt-label {
+    margin-bottom: 15px;
+  }
+
+  & .pt-input,
+  & .pt-select select {
+    padding-top: 2px;
+    box-shadow: none;
+    border: 1px solid $gray-1;
+    transition: border $fast linear;
+    background: $white;
+
+    &:focus {
+      box-shadow: none;
+      border: 1px solid $blue-3;
+    }
+  }
+
+  & .pt-control {
+    line-height: 18px;
+  }
+
+  & .pt-control .pt-control-indicator {
+    box-shadow: none;
+    border: 1px solid $gray-1;
+    transition: border $fast linear;
+    background: $white;
+    width: 18px;
+    height: 18px;
+
+    &:hover {
+      background: $white;
+      box-shadow: none;
+      border: 1px solid $blue-3;
+    }
+  }
+
+  & .pt-control:hover .pt-control-indicator {
+    background: $white;
+    box-shadow: none;
+    border: 1px solid $blue-3;
+  }
+
+  & .pt-control input:checked ~ .pt-control-indicator {
+    background: $blue-3;
+    box-shadow: none;
+    border-color: $blue-5;
+  }
+
+  & :focus,
+  & .pt-control input:focus ~ .pt-control-indicator {
+    outline: 0 !important;
+  }
+
+  & .pt-control:hover input:checked ~ .pt-control-indicator {
+    box-shadow: none;
+    background: $blue-5;
+  }
+
+  & .pt-select select:hover {
+    background: white;
+    box-shadow: none;
+    border: 1px solid $blue-3;
+  }
+
+  & .pt-dialog-header h5 {
+    font-size: 28px;
+    margin: 10px 0;
+  }
+
+  & .pt-dialog-close-button {
+    margin-right: 5px;
+  }
+
+  & .pt-dialog {
+    background: $skin;
+    box-shadow: none;
+    padding-bottom: 30px;
+    top: 10% !important;
+    width: 780px !important;
+
+    @media (max-width: $phone-breakpoint) {
+      top: 25px !important;
+      width: auto !important;
+      left: 25px;
+      right: 25px;
+      transform: translateX(0) !important;
+    }
+
+    & .pt-dialog-header {
+      background: $skin;
+      box-shadow: none;
+      padding: 10px 12px 0 25px;
+    }
+
+    & .pt-dialog-body {
+      margin: 30px;
+    }
+
+    & .pt-dialog-footer {
+      margin: 0 30px;
+    }
+  }
+
+  & .pt-tab {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 14px !important;
+    color: $blue-3 !important;
+
+    &[aria-selected="true"] {
+      color: $dark-gray-3 !important;
+    }
+
+    @media (max-width: $phone-breakpoint) {
+      display: block;
+    }
+  }
+
+  & .pt-tab-list {
+    @media (max-width: $phone-breakpoint) {
+      display: block;
+    }
+  }
+
+  & .pt-button[class*="pt-icon-"]:empty {
+    padding: 3px 0 0 !important;
+  }
+
+  & .pt-toast-message {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 13px 12px 9px !important;
+  }
+
+  & .pt-table {
+    font-size: 16px !important;
+  }
+
+  & table.pt-table th,
+  & table.pt-table td {
+    vertical-align: middle !important;
+  }
+
+  & table.pt-table th {
+    font-size: 14px;
+    vertical-align: bottom !important;
+  }
+
+  & .pt-input-action button span {
+    position: relative;
+    top: 2px;
+  }
+
+  & .pt-overlay-backdrop {
+    background: rgba($black, 0.3);
+  }
+}

@@ -1,0 +1,43 @@
+@import "colors";
+@import "fonts";
+@import "mixins";
+
+.prescription {
+  padding: 15px 15px 2px;
+  background: $white;
+  margin-top: 15px;
+  clear: both;
+}
+
+.ingredients {
+  margin: -10px 0 15px;
+}
+
+.ingredient {
+  display: block;
+  margin: 0 10px 10px 0;
+  line-height: 1.2;
+
+  & .amount {
+    font-size: 16px;
+    font-weight: 600;
+    color: $orange-3;
+  }
+
+  & .unit {
+    font-size: 16px;
+    font-weight: 400;
+    color: $orange-3;
+  }
+
+  & .name {
+    font-size: 16px;
+    color: $dark-gray-1;
+    margin-left: 6px;
+    font-weight: 700;
+  }
+}
+
+.delete-link {
+  float: right;
+}

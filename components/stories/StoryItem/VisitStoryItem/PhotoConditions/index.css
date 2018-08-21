@@ -1,0 +1,74 @@
+@import "colors";
+
+.container {
+  margin: 5px 0 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.inner {
+  padding: 20px 0;
+}
+
+.list {
+  flex: 1 0;
+  padding-right: 20px;
+  position: relative;
+
+  & .condition {
+    padding: 15px 18px 17px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 2px solid $light-gray-1;
+    cursor: pointer;
+
+    &.is-selected {
+      background: $light-gray-1;
+      border-color: $light-gray-3;
+    }
+  }
+
+  & .name {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: $dark-gray-1;
+    line-height: 16px;
+    margin-bottom: 4px;
+  }
+
+  & .description {
+    line-height: 17px;
+    color: $gray-5;
+    font-size: 16px;
+    margin-bottom: -1px;
+  }
+}
+
+.photos {
+  flex: 0 1 400px;
+  position: relative;
+
+  & .photo {
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+
+    & img {
+      display: block;
+    }
+
+    & .canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.25s linear;
+
+      &.is-visible {
+        opacity: 0.5;
+      }
+    }
+  }
+}

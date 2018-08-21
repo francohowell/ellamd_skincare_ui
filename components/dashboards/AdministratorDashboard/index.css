@@ -1,0 +1,19 @@
+@import "colors";
+@import "mixins";
+
+.columns {
+  margin-top: 40px;
+  margin-left: -40px;
+  display: flex;
+  align-items: flex-start;
+
+  & > * {
+    flex: 1 0;
+    margin-left: 40px;
+  }
+}
+
+.attention-required {
+  color: $red-3;
+  font-weight: 700;
+}

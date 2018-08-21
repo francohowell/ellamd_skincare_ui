@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<label
+  className="pt-label"
+>
+  <div
+    className={undefined}
+  >
+    First name
+  </div>
+  <input
+    className="pt-input pt-fill pt-large"
+    onChange={[Function]}
+    placeholder={undefined}
+    type="text"
+    value="Dora"
+  />
+</label>
+`;

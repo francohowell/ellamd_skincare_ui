@@ -1,0 +1,36 @@
+@import "mixins";
+
+.wrapper {
+  position: relative;
+}
+
+.error-wrapper {
+  margin: 25px 0 15px;
+}
+
+.drop-zone {
+  padding: 40px;
+  background: rgba($blue-3, 0.1);
+  border: 2px dashed $blue-3;
+  color: $blue-5;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background $fast linear;
+  line-height: 1.1;
+  border-radius: 3px;
+  margin-bottom: 20px;
+
+  &:hover { background: rgba($blue-3, 0.2); }
+}
+
+.photo {
+  padding: 8px !important;
+  margin: 0 10px 10px 0;
+  display: inline-block;
+  line-height: 0;
+
+  & img {
+    display: inline-block;
+    height: 90px;
+  }
+}

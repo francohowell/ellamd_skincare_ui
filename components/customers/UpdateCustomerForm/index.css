@@ -1,0 +1,71 @@
+@import "mixins";
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+span:global(.pt-label) {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.columns {
+  display: flex;
+  margin-left: -20px;
+
+  & > * {
+    flex: 1 0 !important;
+    margin-left: 20px !important;
+  }
+}
+
+.checkbox {
+  font-size: 18px;
+  margin: 10px;
+  margin-right: 20px;
+}
+
+.options {
+  float: right;
+  white-space: nowrap;
+  font-size: 12px;
+  margin-top: -4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $dark-gray-1;
+
+  & label {
+    display: inline;
+    margin: 0 20px 0 0;
+  }
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+.submit {
+  margin: 10px 30px 0 0;
+}
+
+.cancel-link {
+  display: inline-block;
+  padding: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+.error {
+  background: rgba($red-3, 0.1);
+  padding: 20px 25px;
+  display: block;
+}
+
+.error-wrapper {
+  margin: 25px 0 15px;
+}

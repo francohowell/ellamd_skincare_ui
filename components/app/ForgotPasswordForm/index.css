@@ -1,0 +1,47 @@
+@import "colors";
+@import "fonts";
+@import "mixins";
+
+.forgot-password-form {
+  max-width: 500px;
+  margin: 100px auto 50px;
+
+  @media (max-width: $phone-breakpoint) {
+    margin-top: 10px;
+  }
+}
+
+.heading {
+  font-family: $serif-stack;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.description {
+  line-height: 1.5;
+  max-width: 400px;
+  margin-bottom: 25px;
+}
+
+.label {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 5px;
+  color: $black;
+  cursor: pointer;
+}
+
+.submit {
+  margin: 10px 30px 0 0;
+}
+
+.error-wrapper {
+  margin: 25px 0 15px;
+}
+
+.icon {
+  margin-left: 5px;
+  position: relative;
+  top: -1px;
+}

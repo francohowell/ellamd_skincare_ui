@@ -1,0 +1,33 @@
+@import "colors";
+
+.product-item {
+  border: 1px solid $gray-4;
+  border-radius: 3px;
+  padding: 8px 30px 8px 8px;
+  margin-top: 10px;
+  word-break: break-word;
+  position: relative;
+  list-style-type: none;
+  z-index: 100;
+}
+
+.product-ingredients {
+  margin: 15px;
+  font-size: 14px;
+}
+
+.product-item-button {
+  position: absolute;
+  color: $gray-3;
+  cursor: pointer;
+  top: 15px;
+  margin-top: -8px;
+
+  &.toggle-ingredients {
+    right: 25px;
+  }
+
+  &.remove-product {
+    right: 5px;
+  }
+}

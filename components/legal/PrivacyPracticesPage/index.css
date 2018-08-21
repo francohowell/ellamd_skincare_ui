@@ -1,0 +1,7 @@
+.legal-document {
+  composes: legalDocument from "../index.css";
+}
+
+.square-markered-list {
+  list-style-type: square;
+}

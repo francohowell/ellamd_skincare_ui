@@ -1,0 +1,107 @@
+@import "colors";
+
+.container {
+  & h1 {
+    margin-bottom: 0;
+  }
+
+  & h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: $gray-4;
+    margin-top: 30px;
+    position: relative;
+
+    & span {
+      padding-right: 10px;
+      background: $white;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 4px;
+      height: 3px;
+      background: $light-gray-2;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  & h3 {
+    font-size: 20px;
+  }
+}
+
+.columns {
+  display: flex;
+  padding-top: 10px;
+
+  & > div {
+    flex: 1 0;
+  }
+}
+
+.prescription-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  padding-top: 15px;
+}
+
+.prescription-ingredient {
+  flex: 0 1 33%;
+  padding: 0 10px;
+  margin-bottom: 20px;
+
+  & .wrapper {
+    padding: 6px 20px 18px;
+    border-radius: 4px;
+    background: $light-gray-1;
+  }
+
+  & .ingredient {}
+
+  & .description {
+    font-size: 14px;
+    line-height: 15px;
+    color: $dark-gray-1;
+  }
+
+  & .amount {
+    font-family: "value-serif";
+    font-size: 40px;
+    color: $gray-1;
+    display: block;
+    margin-bottom: -3px;
+  }
+
+  & .name {
+    color: $gray-5;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 700;
+    margin-bottom: 7px;
+  }
+}
+
+.product {
+  margin: 10px 0;
+
+  & .name {
+    font-size: 18px;
+    display: block;
+  }
+
+  & .brand {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $gray-3;
+  }
+}

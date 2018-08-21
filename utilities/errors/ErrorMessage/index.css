@@ -1,0 +1,27 @@
+@import "colors";
+@import "mixins";
+@import "fonts";
+
+.error-box {
+  max-width: 600px;
+  padding: 50px !important;
+  margin: 80px auto 0;
+}
+
+.call-to-action {
+  margin-top: 25px;
+}
+
+.status {
+  font-size: 80px;
+  font-family: $serif-stack;
+  font-weight: 200;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.heading {
+  font-size: 32px;
+  margin-bottom: 5px;
+}

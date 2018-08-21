@@ -1,0 +1,23 @@
+@import "fonts";
+@import "colors";
+@import "mixins";
+
+.heading {
+  padding: 125px 0 0 75px;
+
+  @media (max-width: $phone-breakpoint) {
+    padding-top: 0;
+  }
+}
+
+.welcome {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.flattery {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 25px;
+}

@@ -1,0 +1,76 @@
+@import "colors";
+@import "fonts";
+@import "mixins";
+@import "animation";
+
+.page {
+  & p {
+    margin-bottom: 25px;
+  }
+
+  & h3 {
+    font-family: $serif-stack;
+    font-size: 32px;
+    font-weight: 400;
+    color: $black;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  & h4 {
+    font-family: $sans-serif-stack;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 5px;
+    color: $gray-2;
+  }
+}
+
+.section {
+  padding: 20px 20px 1px !important;
+  margin-bottom: 20px;
+}
+
+.actions {
+  float: right;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: $dark-gray-1;
+}
+
+.identifiers {
+  display: block;
+  font-size: 18px;
+  color: $dark-gray-1;
+  margin-bottom: 20px;
+}
+
+.heading {
+  margin: 20px 0 7px;
+  font-size: 48px;
+  color: $black;
+}
+
+.date-of-birth {
+  margin-right: 10px;
+}
+
+.sex {
+  text-transform: uppercase;
+}
+
+.columns {
+  display: flex;
+  margin-left: -20px;
+  align-items: flex-start;
+
+  & .column {
+    flex: 1 0;
+    margin-left: 20px;
+  }
+}

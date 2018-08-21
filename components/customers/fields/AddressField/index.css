@@ -1,0 +1,13 @@
+@import "colors";
+
+.label {
+  margin-bottom: 5px;
+}
+
+.suggest-container-item {
+  padding: 10px 20px;
+}
+
+.suggest-container-item:hover {
+  background-color: $gray-1;
+}

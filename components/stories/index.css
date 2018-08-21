@@ -1,0 +1,184 @@
+@import "colors";
+
+.container {
+  display: flex;
+  padding: 0 0 40px;
+  align-items: stretch;
+}
+
+.content {
+  flex: 1 0;
+  padding: 25px 45px;
+  border-radius: 10px;
+  position: relative;
+
+  & h1 {
+    margin: 10px 0 16px;
+    font-size: 28px;
+  }
+
+  &::before {
+    $size: 24px;
+
+    position: absolute;
+    top: 38px;
+    left: -14px;
+    width: $size;
+    height: $size;
+    background: $white;
+    border-left: 3px solid $gray-1;
+    border-bottom: 3px solid $gray-1;
+    content: "";
+    transform: rotate(45deg);
+  }
+}
+
+.meta {
+  min-width: 180px;
+  flex: 0 1 250px;
+  display: flex;
+  padding: 20px 0;
+  align-items: flex-start;
+  position: relative;
+
+  & > * {
+    z-index: 2;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 48px;
+    top: 40px;
+    bottom: -100px;
+    border-left: 3px solid $light-gray-5;
+  }
+}
+
+.avatar-image {
+  border-radius: 100px;
+  border: 3px solid $gray-5;
+  box-shadow: 0 0 0 3px $light-gray-2;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 44px;
+  font-weight: 700;
+  color: $gray-4;
+  font-size: 18px;
+  letter-spacing: 1px;
+  background: $white;
+  text-transform: uppercase;
+}
+
+.add-container .meta {
+  & .avatar-image {
+    border-style: dashed;
+    border-color: $gray-1;
+    background: $light-gray-2;
+  }
+
+  &::before {
+    border-left-style: dashed;
+  }
+}
+
+.time-and-from {
+  flex: 1 0;
+  text-align: right;
+  color: $dark-gray-4;
+
+  & .time-ago {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 2px 0;
+  }
+
+  & .date {
+    margin: 1px 0 4px;
+    color: $gray-5;
+  }
+
+  & .from {
+    font-weight: 600;
+    margin: 2px 0;
+    color: $gray-5;
+  }
+}
+
+.avatar {
+  flex: 0 1 50px;
+  margin: 10px 25px 0;
+}
+
+.customer-content {
+  composes: content;
+  background-color: $light-gray-2;
+  border: 3px solid $light-gray-5;
+
+  &::before {
+    border-color: $light-gray-5;
+    background-color: $light-gray-2;
+  }
+}
+
+.physician-content {
+  composes: content;
+  background-color: $white;
+  border: 3px solid $gray-1;
+
+  &::before {
+    border-color: $gray-1;
+    background-color: $white;
+  }
+}
+
+.add-container .customer-content {
+  background-color: $white;
+  border-color: $light-gray-3;
+
+  &::before {
+    border-color: $light-gray-3;
+    background-color: $white;
+  }
+
+  &:hover {
+    border-color: $gray-1;
+
+    &::before {
+      border-color: $gray-1;
+    }
+  }
+}
+
+.signature {
+  margin-top: 16px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-end;
+
+  & img {
+    width: 200px;
+    opacity: 0.5;
+    display: block;
+    margin: -20px 0 -15px;
+  }
+
+  & div {
+    flex: 0 1 auto;
+    padding-left: 15px;
+    border-left: 3px solid $light-gray-2;
+
+    &:hover img {
+      opacity: 1;
+    }
+  }
+
+  & span {
+    display: block;
+    font-family: "value-serif";
+    position: relative;
+    z-index: 2;
+  }
+}

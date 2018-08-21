@@ -1,0 +1,23 @@
+@import "colors";
+
+div.legal-document {
+  padding: 45px 45px 20px;
+  color: $dark-gray-1;
+  font-size: 15px;
+
+  & h2 {
+    color: $dark-gray-3;
+  }
+
+  & p {
+    margin-bottom: 30px;
+  }
+
+  & a {
+    margin-left: 4px;
+  }
+
+  & b i {
+    color: $gray-3;
+  }
+}

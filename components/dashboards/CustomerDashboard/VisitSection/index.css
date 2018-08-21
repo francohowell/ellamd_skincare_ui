@@ -1,0 +1,81 @@
+@import "fonts";
+@import "colors";
+@import "mixins";
+
+.columns {
+  display: flex;
+  margin-left: -40px;
+  align-items: flex-start;
+
+  & > * {
+    flex: 1 0 !important;
+    margin-left: 40px !important;
+  }
+
+  @media (max-width: $phone-breakpoint) {
+    display: block;
+    margin-left: 0;
+
+    & > * {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+.photo {
+  padding: 8px !important;
+  margin: 10px 10px 10px 0;
+  display: inline-block;
+  line-height: 0;
+
+  & img {
+    display: inline-block;
+    height: 200px;
+  }
+}
+
+.plan {
+  & h3 {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+}
+
+.ingredient {
+  display: block;
+  padding: 16px 0;
+  border-bottom: 1px solid $light-gray-2;
+
+  &:last-child { border-bottom: 0; }
+}
+
+.name {
+  font-size: 18px;
+}
+
+.amount {
+  font-size: 18px;
+  color: $dark-gray-3;
+}
+
+.description {
+  display: block;
+  color: $gray-3;
+}
+
+.diagnosis-date {
+  color: $gray-3;
+  font-family: $sans-serif-stack;
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+li.diagnosis-condition-item {
+  font-weight: bold;
+}
+
+li.diagnosis-condition-item span {
+  font-weight: normal;
+  display: block;
+  padding: 10px 0 10px 10px;
+}

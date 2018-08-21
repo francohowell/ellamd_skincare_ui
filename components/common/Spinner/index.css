@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  width: 100%;
+  max-width: none !important;
+  height: 100%;
+  align-items: center;
+  top: 0;
+
+  & .spinner {
+    display: flex;
+    margin: 0 auto;
+  }
+}
+
+.container-centered {
+  position: fixed;
+}
+
+.container-relative {
+  padding-top: 100px;
+}

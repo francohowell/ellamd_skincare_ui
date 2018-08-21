@@ -1,0 +1,31 @@
+@import "colors";
+
+.regimen {
+  padding: 15px 15px 2px;
+  background: $white;
+  margin-top: 15px;
+  clear: both;
+}
+
+.regimen-period {
+  margin: 0 0 15px;
+}
+
+.product {
+  display: block;
+  margin: 0 10px 10px 0;
+  line-height: 1.2;
+
+  & .product-index {
+    font-size: 16px;
+    font-weight: 600;
+    color: $orange-3;
+  }
+
+  & .product-name {
+    font-size: 16px;
+    color: $dark-gray-1;
+    margin-left: 6px;
+    font-weight: 700;
+  }
+}

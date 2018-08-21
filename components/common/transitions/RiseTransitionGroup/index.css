@@ -1,0 +1,23 @@
+@import "animation";
+
+.enter {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform $slow $ease-bounce,
+    opacity $fast linear;
+}
+
+.leave {
+  opacity: 1;
+}
+
+.leave-active {
+  opacity: 0;
+  transition: opacity calc($fast * 2) linear;
+}

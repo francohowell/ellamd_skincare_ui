@@ -1,0 +1,66 @@
+@import "colors";
+@import "animation";
+@import "mixins";
+
+.wrapper {
+  display: inline-flex;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.input { display: none; }
+
+.label {
+  margin: 0 0 0 8px;
+  vertical-align: baseline;
+  flex: 1 0;
+  transition: color $fast linear;
+}
+
+.indicator {
+  $size: 18px;
+
+  width: $size;
+  height: $size;
+  flex: 0 0 $size;
+  background: $white;
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  transition: box-shadow $fast $ease-in;
+  box-shadow: 0 0 transparent;
+}
+
+.tick {
+  opacity: 0;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  transform: scale(0);
+  transition:
+    opacity $fast linear,
+    transform $slow $ease-bounce;
+  font-size: 14px;
+
+  &::before {
+    color: $white;
+    content: "✔";
+  }
+}
+
+.is-hovered,
+.wrapper:hover {
+  & .label { color: $black; }
+  & .indicator { box-shadow: 3px 3px rgba($black, 0.15); }
+}
+
+.is-checked {
+  & .indicator {
+    background: $light-blue;
+  }
+
+  & .tick {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

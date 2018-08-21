@@ -1,0 +1,20 @@
+@import "colors";
+
+.time-options {
+  padding: 5px 0 8px;
+}
+
+.option {
+  color: rgba($black, 0.5);
+
+  & > span {
+    color: $black;
+  }
+}
+
+.description {
+  margin: 10px 0 5px !important;
+  line-height: 1.2;
+  font-size: 14px;
+  color: rgba($black, 0.5);
+}

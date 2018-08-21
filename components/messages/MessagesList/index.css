@@ -1,0 +1,45 @@
+@import "colors";
+@import "mixins";
+
+.messages {
+  background-color: white;
+  padding: 10px 20px;
+  height: 400px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.message {
+  line-height: 1.5;
+  margin-top: 15px;
+}
+
+.content {
+  width: 80%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.data {
+  width: 20%;
+  display: inline-block;
+}
+
+.by {
+  font-size: 14px;
+  text-align: right;
+}
+
+.date {
+  color: $gray-3;
+  font-size: 12px;
+  text-align: right;
+}
+
+.message-form {
+  padding: 35px 0;
+}
+
+.submit {
+  float: right;
+}

@@ -1,0 +1,6 @@
+@import "mixins";
+
+.pagination {
+  margin: 10px 0;
+  text-align: right;
+}

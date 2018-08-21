@@ -1,0 +1,27 @@
+@import "animation";
+
+.enter {
+  opacity: 0;
+  margin: 0;
+}
+
+.enter-active {
+  opacity: 1;
+  margin: 25px 0 15px;
+  transition:
+    margin $slow $ease-in,
+    opacity $fast linear;
+}
+
+.leave {
+  opacity: 1;
+  margin: 25px 0 15px;
+}
+
+.leave-active {
+  opacity: 0;
+  margin: 0;
+  transition:
+    margin $slow $ease-in,
+    opacity $fast linear;
+}

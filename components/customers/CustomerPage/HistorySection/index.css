@@ -1,0 +1,8 @@
+@import "colors";
+
+.warning {
+  display: inline-block;
+  color: $red-3;
+  font-weight: 700;
+  margin-right: 10px;
+}

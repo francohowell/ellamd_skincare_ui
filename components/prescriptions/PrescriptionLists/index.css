@@ -1,0 +1,28 @@
+@import "colors";
+@import "mixins";
+@import "animation";
+
+.page {
+  padding: 0;
+}
+
+.table {
+  margin: 15px 0;
+  width: 100%;
+}
+
+.heading {
+  margin: 10px 0 25px;
+  font-size: 32px;
+}
+
+.sortable {
+  color: $blue-3 !important;
+  cursor: pointer;
+
+  &:hover { color: $blue-5 !important; }
+}
+
+.sort-icon {
+  margin-left: 5px;
+}

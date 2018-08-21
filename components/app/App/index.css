@@ -1,0 +1,113 @@
+@import "colors";
+@import "fonts";
+@import "animation";
+@import "mixins";
+
+$header-height: 100px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: $skin;
+  color: $black;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $sans-serif-stack;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: $sans-serif-stack;
+}
+
+a {
+  color: $blue-3;
+  text-decoration: none;
+  transition: color $fast linear;
+  cursor: pointer;
+
+  &:hover {
+    color: $blue-1;
+    text-decoration: none;
+  }
+
+  &:focus { outline: 0; }
+  &:active { color: $blue-5; }
+}
+
+::selection {
+  background: rgba($blue-3, 0.2);
+}
+
+::-moz-selection {
+  background: rgba($blue-3, 0.2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $serif-stack;
+  font-weight: 400;
+  line-height: 1;
+}
+
+p {
+  line-height: 1.3;
+}
+
+.app {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.customer-wrapper {
+  background: $light-gray-2;
+  min-height: 100vh;
+  padding-bottom: 10px;
+
+  & .app {
+    max-width: 1200px;
+  }
+}
+
+.customer {
+  font-family: "value";
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    font-family: "value-serif";
+  }
+
+  & p {
+    font-size: 18px;
+  }
+}
+
+.is-loading {
+  text-align: center;
+}
+
+.content {
+  display: block;
+  padding: 0 25px;
+
+  & .inner-content {
+    margin-bottom: 50px;
+  }
+}

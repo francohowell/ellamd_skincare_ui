@@ -1,0 +1,44 @@
+@import "mixins";
+
+.wrapper {
+  position: relative;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.columns {
+  display: flex;
+  margin-left: -20px;
+
+  & > label {
+    flex: 1 0 !important;
+    margin-left: 20px !important;
+  }
+}
+
+.options {
+  display: block;
+  margin: 8px 0 -20px;
+}
+
+.submit {
+  margin: 10px 30px 0 0;
+}
+
+.cancel-link {
+  display: inline-block;
+  padding: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+.error-wrapper {
+  margin: 25px 0 15px;
+}

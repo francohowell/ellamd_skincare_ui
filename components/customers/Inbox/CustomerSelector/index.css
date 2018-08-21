@@ -1,0 +1,19 @@
+@import "colors";
+
+.selector {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.selector li {
+  padding: 10px;
+}
+
+.selector li:hover {
+  background-color: rgba(19, 124, 189, 0.15);
+}
+
+.selected {
+  background-color: rgba(19, 124, 189, 0.15);
+}

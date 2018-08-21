@@ -1,0 +1,14 @@
+@import "colors";
+@import "animation";
+@import "mixins";
+
+.id {
+  color: $gray-3 !important;
+  padding-right: 0;
+}
+
+.name {
+  color: $black;
+  transition: color $fast linear;
+  font-weight: 700;
+}

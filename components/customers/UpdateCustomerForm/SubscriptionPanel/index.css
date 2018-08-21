@@ -1,0 +1,39 @@
+.spinner {
+  text-align: center;
+}
+
+.server-message {
+  font-weight: bold;
+}
+
+.col {
+  display: inline-block;
+  width: 50%;
+  padding-left: 2%;
+}
+
+.update-card-button {
+  margin-bottom: 10px;
+}
+
+.subscription-action-button {
+  margin-top: 10px;
+}
+
+.col-header {
+  display: inline-block;
+  width: 50%;
+  padding: 2%;
+}
+
+.li-col {
+  display: inline-block;
+  width: 50%;
+  padding-left: 2%;
+  padding-bottom: 2%;
+  list-style-type: none;
+}
+
+.panel-block {
+  margin-top: 10px;
+}

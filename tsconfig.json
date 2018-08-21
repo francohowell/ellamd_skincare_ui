@@ -1,0 +1,38 @@
+{
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "baseUrl": ".",
+    "rootDir": ".",
+    "rootDirs": ["."],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": false, // TODO: check what's wrong with @react/types when this flag this on
+    "strictPropertyInitialization": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "react": ["./node_modules/@types/react/index"]
+    },
+    "strict": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "lib": ["dom", "es2017"]
+  },
+  "formatCodeOptions": {
+    "indentSize": 2,
+    "tabSize": 2
+  },
+  "atom": {
+    "formatOnSave": false
+  },
+  "exclude": ["node_modules", "__tests__"]
+}

@@ -1,0 +1,34 @@
+@import "colors";
+@import "mixins";
+@import "animation";
+
+.table {
+  width: 100%;
+}
+
+.heading {
+  margin: 10px 0;
+  font-size: 32px;
+}
+
+.create-form {
+  float: right;
+}
+
+.enter {
+  opacity: 0;
+}
+
+.enter-active {
+  opacity: 1;
+  transition: opacity $slow linear;
+}
+
+.leave {
+  opacity: 1;
+}
+
+.leave-active {
+  opacity: 0;
+  transition: opacity $slow linear;
+}

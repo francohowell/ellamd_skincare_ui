@@ -1,0 +1,17 @@
+@import "colors";
+
+.diagnosis {
+  & ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: $orange-3;
+  }
+
+  & li {
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+}
+
+.condition {}

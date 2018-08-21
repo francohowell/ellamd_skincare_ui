@@ -1,0 +1,16 @@
+@import "colors";
+
+.start,
+.end {
+  color: $gray-3;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.end {
+  float: right;
+}
+
+.congratulations {
+  margin: 20px 0 0;
+}

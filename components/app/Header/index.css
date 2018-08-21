@@ -1,0 +1,133 @@
+@import "colors";
+@import "fonts";
+@import "animation";
+@import "mixins";
+
+.header {
+  padding: 0 25px;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  font-size: 12px;
+}
+
+.header-customer {
+  font-family: "value";
+  position: fixed;
+  max-width: none;
+  background: $light-gray-4;
+  box-shadow: 0 0 0 3px rgba($gray-5, 0.25);
+
+  & > * {
+    z-index: 2;
+  }
+}
+
+.logo {
+  flex: 0 1;
+  font-size: 24px;
+  font-weight: 700;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  margin: 0;
+  padding: 12px 0;
+
+  & a {
+    color: $gray-5;
+    font-family: "value";
+  }
+
+  & span {
+    font-family: "value-serif";
+    font-weight: 400;
+  }
+}
+
+.navigation {
+  flex: 1 0;
+  text-align: right;
+}
+
+.welcome {
+  font-size: 16px;
+  margin-right: 20px;
+
+  @media (max-width: $phone-breakpoint) {
+    display: none;
+  }
+}
+
+.link {
+  margin-left: 20px;
+  padding: 20px 0;
+  color: $blue-5;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 0;
+    transition: height 0.25s ease-out;
+  }
+
+  &:hover {
+    color: $blue-3;
+
+    &::before {
+      background: $blue-1;
+      height: 3px;
+    }
+  }
+
+  &.active,
+  &.active:hover {
+    color: $dark-gray-5;
+
+    &::before {
+      background: $gray-4;
+      height: 3px;
+    }
+  }
+
+  @media (max-width: $phone-breakpoint) {
+    padding: 0 10px;
+    margin-left: 10px;
+  }
+}
+
+.button,
+.button.active {
+  @include button;
+
+  margin-left: 20px;
+
+  &::before { display: none; }
+}
+
+.avatar-button {
+  margin-left: 24px;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 $dark-gray-1;
+  transition: box-shadow 0.25s ease-out;
+  position: relative;
+  top: 12px;
+  text-transform: uppercase;
+
+  &:hover {
+    box-shadow: 0 0 0 2px $dark-gray-1;
+  }
+}

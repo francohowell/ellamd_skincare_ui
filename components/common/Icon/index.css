@@ -1,0 +1,22 @@
+@import "fonts";
+
+.icon {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+.small {
+  font-size: 16px;
+  font-family: "icons-16";
+}
+
+.medium {
+  font-size: 20px;
+  font-family: "icons-20";
+}
+
+.large {
+  font-size: 32px;
+  font-family: "icons-16";
+}

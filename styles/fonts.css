@@ -133,3 +133,55 @@ $serif-stack: "romana", "georgia", serif;
   font-stretch: normal;
   unicode-range: U+000D-FEFF;
 }
+
+/* Style Guide fonts */
+
+$font-primary: "Roboto", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-secondary: "LatoWeb", "helvetica", "arial", sans-serif;
+$font-headings: "Times New Roman", Times, serif;
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("assets/fonts/roboto/robotoLight.woff2?v=2.137") format("woff2"),
+    url("assets/fonts/roboto/robotoLight.woff?v=2.137") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("assets/fonts/roboto/robotoRegular.woff2?v=2.137") format("woff2"),
+    url("assets/fonts/roboto/robotoRegular.woff?v=2.137") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("assets/fonts/roboto/robotoMedium.woff2?v=2.137") format("woff2"),
+    url("assets/fonts/roboto/robotoMedium.woff?v=2.137") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("assets/fonts/roboto/robotoBold.woff2?v=2.137") format("woff2"),
+    url("assets/fonts/roboto/robotoBold.woff?v=2.137") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LatoWeb';
+  src:
+    url('assets/fonts/lato/latoItalic.woff2') format('woff2'),
+    url('assets/fonts/lato/latoItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}

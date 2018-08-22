@@ -19,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $sans-serif-stack;
+  height: 100%;
 }
 
 input,
@@ -110,4 +111,12 @@ p {
   & .inner-content {
     margin-bottom: 50px;
   }
+}
+
+:global(.max-height) {
+  height: 100%;
+}
+
+:global(#root) {
+  height: 100%;
 }

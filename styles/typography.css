@@ -1,0 +1,68 @@
+@import "colors";
+@import "fonts";
+
+.primary-title {
+  color: $color-ella-blue;
+  font-family: $font-headings;
+  font-size: 46px;
+}
+
+.secondary-title {
+  color: $color-ella-blue;
+  font-family: $font-headings;
+  font-size: 36px;
+}
+
+.tertiary-title {
+  color: $color-ella-blue;
+  font-family: $font-headings;
+  font-size: 26px;
+}
+
+.body-xl {
+  color: $color-ella-blue;
+  font-family: $font-primary;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+.body-l {
+  color: $color-grey-1;
+  font-family: $font-primary;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+.body-m {
+  color: $color-grey-1;
+  font-family: $font-primary;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.35;
+}
+
+.label-m {
+  color: $color-ella-blue;
+  text-transform: uppercase;
+  font-family: $font-primary;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.label-s {
+  color: $color-ella-blue;
+  text-transform: uppercase;
+  font-family: $font-primary;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+}
+
+.notes {
+  color: $color-grey-1;
+  font-family: $font-secondary;
+  font-size: 13px;
+  font-style: italic;
+}

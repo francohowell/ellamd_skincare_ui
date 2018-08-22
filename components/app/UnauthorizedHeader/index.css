@@ -1,0 +1,104 @@
+@import "colors";
+@import "mixins";
+
+.layout {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 11px 24px;
+
+  @include respond-to-desktop {
+    padding-top: 27px;
+    padding-bottom: 27px;
+  }
+}
+
+.logo {
+  height: 18px;
+  vertical-align: top;
+
+  & > img {
+    height: 100%;
+  }
+
+  @include respond-to-desktop {
+    height: 22px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-left: 3px;
+  }
+}
+
+.left {
+  display: none;
+
+  @include respond-to-desktop {
+    display: block;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  text-align: right;
+}
+
+.action {
+  flex-shrink: 0;
+}
+
+.hint {
+  composes: body-m from "styles/typography.css";
+  margin-right: 15px;
+  margin-top: 0.1em;
+  display: none;
+
+  @media (min-width: 350px) {
+    display: block;
+  }
+
+  @include respond-to-desktop {
+    color: white;
+  }
+}
+
+.hint-mobile {
+  composes: hint;
+
+  @include respond-to-desktop {
+    display: none;
+  }
+}
+
+.hint-desktop {
+  composes: hint;
+  display: none;
+
+  @include respond-to-desktop {
+    display: block;
+  }
+}
+
+.back {
+  composes: label-s from "styles/typography.css";
+
+  @include respond-to-desktop {
+    &:hover {
+      color: color($color-ella-blue tint(20%));
+    }
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    border-top: 1px solid $color-grey-4;
+    margin-right: 14px;
+    height: 0.5em;
+  }
+}

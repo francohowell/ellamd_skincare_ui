@@ -1,0 +1,31 @@
+@import "colors";
+
+.control {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.page {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 4px;
+  margin-right: 4px;
+  border-color: inherit;
+  border-radius: 50%;
+  vertical-align: top;
+  opacity: 0.4;
+  background-color: $color-pastel-2;
+  cursor: pointer;
+  transition: opacity 0.2s, background-color 0.2s;
+
+  &:hover,
+  &.is-selected {
+    background-color: white;
+    opacity: 1;
+  }
+}
+
+.counter {
+  /* TODO */
+}

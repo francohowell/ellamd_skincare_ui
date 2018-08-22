@@ -5,7 +5,7 @@ import {Route} from "react-router-dom";
 import {Header} from "components/app/Header";
 import {Spinner} from "components/common";
 import {IdentityStore} from "stores";
-import {Router} from "utilities";
+import {Router, ROUTES} from "utilities";
 
 // We use some external CSS, namely the Blueprint.js styling and normalize.css. We also include here
 // `styles/blueprint.css` which overrides some of the global styles from Blueprint.
@@ -31,6 +31,12 @@ export class App extends React.Component<Props> {
   public render() {
     if (this.props.identityStore!.isLoading || this.props.onServer) {
       return <Spinner position="center" />;
+    }
+
+    /* It's not necessary to break layout of whole app as of now. Once every screen reworked
+       it should be easy to get rid of old layout */
+    if ([ROUTES.signUp, ROUTES.signIn].indexOf(this.props.path) !== -1) {
+      return this.renderEmptyLayout();
     }
 
     return (
@@ -73,4 +79,8 @@ export class App extends React.Component<Props> {
       </div>
     );
   }
+
+  private renderEmptyLayout = () => (
+    <Route render={({location}) => <Router location={location} onServer={this.props.onServer} />} />
+  );
 }

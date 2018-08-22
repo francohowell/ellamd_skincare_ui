@@ -6,6 +6,8 @@ import {Route} from "react-router-dom";
 import {App} from "components/app";
 import {PageTransitionListener, Provider, ScrollToTop, Toaster} from "utilities";
 
+import * as layoutStyles from "styles/layout.css";
+
 const SHOW_GLOBAL_ERROR = false;
 
 interface Props {
@@ -45,7 +47,7 @@ export class Entry extends React.Component<Props> {
 
   public render() {
     return (
-      <div>
+      <div className={layoutStyles.maxHeight}>
         <Helmet titleTemplate="EllaMD • %s">
           <title>personalized skincare service</title>
           <meta

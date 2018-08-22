@@ -3,6 +3,7 @@
 
 $default-shadow-color: rgba($black, 0.15);
 $phone-breakpoint: 700px;
+$desktop-breakpoint: 1000px;
 
 @mixin small-shadow($shadow-color: $default-shadow-color) {
   box-shadow: 5px 5px $shadow-color;
@@ -44,5 +45,17 @@ $phone-breakpoint: 700px;
   &:active {
     background: linear-gradient(to top, rgba($white, 0.1), rgba($white, 0)), $blue-4;
     color: $white;
+  }
+}
+
+@mixin respond-to-mobile {
+  @media (max-width: $desktop-breakpoint - 1) {
+    @content;
+  }
+}
+
+@mixin respond-to-desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
   }
 }

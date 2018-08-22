@@ -1,0 +1,61 @@
+@import "colors";
+
+.layout {
+  height: 100%;
+  background-color: $color-pastel-1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 36px 36px 72px;
+}
+
+.content {
+  max-width: 460px;
+  text-align: center;
+  color: white;
+}
+
+.transformation {
+  composes: notes from 'styles/typography.css';
+  list-style-type: none;
+  margin: 0 0 20px;
+  padding: 0;
+  color: $color-pastel-4;
+  text-align: center;
+
+  & > li {
+    display: inline-block;
+
+    &:first-child {
+      margin-right: -16px;
+    }
+  }
+}
+
+.face {
+  margin-left: auto;
+  margin-right: auto;
+  width: 66px;
+  height: 66px;
+  background-color: black;
+  border: 3px solid $color-pastel-5;
+  border-radius: 33px;
+  vertical-align: top;
+  margin-bottom: 8px;
+}
+
+.testimonial {
+  composes: notes from 'styles/typography.css';
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(#FFFFFF, 0.7);
+  margin-bottom: 24px;
+}
+
+.person {
+  composes: label-m from 'styles/typography.css';
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1;
+}

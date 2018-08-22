@@ -1,4 +1,4 @@
-import {Button, Spinner} from "@blueprintjs/core";
+import * as classnames from "classnames";
 import {action, observable} from "mobx";
 import {inject, observer} from "mobx-react";
 import {asyncAction} from "mobx-utils";
@@ -8,12 +8,18 @@ import GoogleLogin from "react-google-login";
 import {Link, RouteComponentProps} from "react-router-dom";
 
 import {IdentitiesApi} from "apis";
-import {FadeTransitionGroup} from "components/common";
+import {SignLayout} from "components/app/SignLayout";
+import {HeaderType} from "components/app/UnauthorizedHeader";
+import {FormInput} from "components/common";
 import {IdentityStore} from "stores";
 
 import {FACEBOOK_APP_ID, FacebookResponse, GOOGLE_CLIENT_ID, ROUTES} from "utilities";
 
-import * as styles from "./index.css";
+import {ReactComponent as FacebookIcon} from "assets/icons/facebook.svg";
+import {ReactComponent as GoogleIcon} from "assets/icons/google.svg";
+
+import * as styles from "components/app/SignLayout/index.css";
+import * as buttonStyles from "styles/buttons.css";
 
 interface Props extends RouteComponentProps<any> {
   identityStore?: IdentityStore;
@@ -127,104 +133,95 @@ export class SignInForm extends React.Component<Props> {
     }
   }
 
-  public render() {
-    return (
-      <form
-        className={styles.signInForm}
-        onSubmit={event => {
-          event.preventDefault();
-          this.store.signInWithEmail();
-        }}
-      >
-        <h2 className={styles.heading}>Welcome back</h2>
-        <p className={styles.description}>Sign in to access your personal dashboard.</p>
+  private handleFormSubmit = (event: React.FormEvent<any>) => {
+    event.preventDefault();
+    this.store.signInWithEmail();
+  };
 
-        <label className="pt-label">
-          Email address
-          <input
-            className="pt-input pt-fill pt-large"
-            type="text"
+  private renderForm() {
+    return (
+      <form className={styles.form} onSubmit={this.handleFormSubmit}>
+        <div className={styles.formHeading}>
+          <h2 className={styles.formHeadingTitle}>Welcome back</h2>
+          <p className={styles.formHeadingLead}>Sign in to access your personal dashboard.</p>
+        </div>
+
+        <div className={styles.formInputGroup}>
+          <FormInput
+            className={styles.formInput}
+            type="email"
+            placeholder="Email address"
+            disabled={this.store.isLoading}
             onChange={event => this.store.setEmail((event.target as any).value)}
             value={this.store.email}
           />
-        </label>
 
-        <label className="pt-label">
-          Password
-          <input
-            className="pt-input pt-fill pt-large"
+          <FormInput
+            className={styles.formInput}
             type="password"
+            placeholder="Password"
+            disabled={this.store.isLoading}
             onChange={event => this.store.setPassword((event.target as any).value)}
             value={this.store.password}
           />
-        </label>
+        </div>
 
-        <FadeTransitionGroup>{this.renderError()}</FadeTransitionGroup>
-
-        <Button className={`pt-intent-primary pt-large ${styles.submit}`} type="submit">
+        <button className={classnames(buttonStyles.primary, buttonStyles.block)} type="submit">
           Sign in
-        </Button>
+        </button>
 
         <Link
           to={ROUTES.forgotPassword}
-          className={`pt-intent-primary pt-button pt-large pt-minimal ${styles.submit}`}
+          className={classnames(buttonStyles.simple, buttonStyles.block)}
         >
           Forgot your password?
         </Link>
 
-        <div className={styles.actions}>
-          <FacebookLogin
-            disableMobileRedirect={true}
-            appId={FACEBOOK_APP_ID}
-            autoLoad={false}
-            fields=""
-            callback={(event: any) => {
-              this.store.signInWithFacebook(event);
-            }}
-            size="small"
-            textButton="Sign in with Facebook"
-            cssClass={`pt-button pt-large ${styles.facebookButton}`}
-          />
+        <div className={styles.formSocialGroup}>
+          <div className={styles.formSocialButton}>
+            <FacebookLogin
+              disableMobileRedirect={true}
+              appId={FACEBOOK_APP_ID}
+              autoLoad={false}
+              fields=""
+              callback={(event: any) => {
+                this.store.signInWithFacebook(event);
+              }}
+              size="small"
+              textButton={"Using Facebook"}
+              icon={<FacebookIcon />}
+              cssClass={classnames(buttonStyles.facebook, buttonStyles.block)}
+            />
+          </div>
 
-          <GoogleLogin
-            clientId={GOOGLE_CLIENT_ID}
-            onSuccess={event => this.store.signInWithGoogle(event)}
-            onFailure={event => this.store.signInWithGoogle(event)}
-            buttonText="Sign in with Google"
-            className={`pt-button pt-large ${styles.googleButton}`}
-          />
+          <div className={styles.formSocialButton}>
+            <GoogleLogin
+              clientId={GOOGLE_CLIENT_ID}
+              onSuccess={event => this.store.signInWithGoogle(event)}
+              onFailure={event => this.store.signInWithGoogle(event)}
+              className={classnames(buttonStyles.google, buttonStyles.block)}
+            >
+              <GoogleIcon /> Using Google
+            </GoogleLogin>
+          </div>
         </div>
-
-        <FadeTransitionGroup>{this.renderLoadingOverlay()}</FadeTransitionGroup>
       </form>
     );
   }
 
-  private renderError() {
-    if (!this.store.hasError) {
-      return;
-    }
-
+  public render() {
     return (
-      <div className={styles.errorWrapper}>
-        <div className="pt-callout pt-intent-danger">
-          That email address and password combination is incorrect.
-        </div>
-      </div>
-    );
-  }
-
-  private renderLoadingOverlay() {
-    if (!this.store.isLoading) {
-      return;
-    }
-
-    return (
-      <div className={styles.overlay}>
-        <div className={styles.spinner}>
-          <Spinner />
-        </div>
-      </div>
+      <SignLayout
+        headerType={HeaderType.SignUp}
+        isLoading={this.store.isLoading}
+        errors={
+          this.store.hasError
+            ? ["That email address and password combination is incorrect."]
+            : undefined
+        }
+      >
+        {this.renderForm()}
+      </SignLayout>
     );
   }
 }

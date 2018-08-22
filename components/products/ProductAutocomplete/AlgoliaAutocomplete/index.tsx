@@ -38,16 +38,16 @@ class Store {
   }
 
   @action
-  public addHits(hits: Hit[]) {
-    if (hits.length === 0) {
+  public addHits(freshHits: Hit[]) {
+    if (freshHits.length === 0) {
       return;
     }
 
-    if (this.hits.length > 0 && hits[0].id === this.hits[0].id) {
-      return;
-    }
+    freshHits = freshHits.filter(hit => {
+      return !this.hits.some(oldHit => hit.id === oldHit.id);
+    });
 
-    this.hits = this.hits.concat(hits);
+    this.hits = this.hits.concat(freshHits);
   }
 
   @action

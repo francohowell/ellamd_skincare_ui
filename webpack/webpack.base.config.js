@@ -51,6 +51,10 @@ module.exports = options => ({
         use: ["ejs-compiled-loader"],
       },
       {
+        test: /icons\/.*\.svg$/,
+        use: ["@svgr/webpack"],
+      },
+      {
         test: /(^|\/)assets\//,
         exclude: /node_modules/,
         oneOf: [

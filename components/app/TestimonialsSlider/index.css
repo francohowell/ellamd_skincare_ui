@@ -1,0 +1,21 @@
+.layout {
+  position: relative;
+  flex: 1;
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+
+  & > :global(.react-swipeable-view-container) {
+    flex: 1;
+  }
+}
+
+.page-control {
+  position: absolute;
+  bottom: 38px;
+  left: 50%;
+  transform: translate(-50%);
+}

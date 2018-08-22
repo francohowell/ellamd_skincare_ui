@@ -1,0 +1,59 @@
+@import "colors";
+@import "fonts";
+@import "mixins";
+
+.layout {
+  display: block;
+}
+
+.input {
+  width: 100%;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid $color-grey-4;
+  border-radius: 0;
+  outline: none;
+  color: $color-ella-blue;
+  font-family: $font-primary;
+  font-size: 17px;
+  font-weight: normal;
+  box-shadow: none;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: $color-grey-2;
+    transition: color 0.2s;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: auto;
+  }
+
+  &:focus {
+    border-color: $color-pastel-4;
+
+    &::placeholder {
+      color: $color-grey-1;
+    }
+  }
+
+  @include respond-to-desktop {
+    &:hover {
+      border-color: $color-pastel-4;
+
+      &::placeholder {
+        color: $color-grey-1;
+      }
+    }
+  }
+}
+
+.has-error {
+
+}
+
+.error-message {
+  color: $color-alert;
+}

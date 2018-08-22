@@ -126,6 +126,7 @@ div.photo-thumbnail {
       bottom: 0;
       cursor: none;
       z-index: 10;
+      touch-action: none;
     }
 
     & .cursor {

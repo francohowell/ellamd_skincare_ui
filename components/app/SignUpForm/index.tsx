@@ -1,4 +1,4 @@
-import {Button, Spinner} from "@blueprintjs/core";
+import * as classnames from "classnames";
 import {action, observable} from "mobx";
 import {inject, observer} from "mobx-react";
 import * as React from "react";
@@ -6,10 +6,15 @@ import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
 import {RouteComponentProps} from "react-router-dom";
 
-import {FadeTransitionGroup} from "components/common";
+import {SignLayout} from "components/app/SignLayout";
+import {HeaderType} from "components/app/UnauthorizedHeader";
+import {FormInput} from "components/common";
 import {WelcomeDialog} from "components/customers";
 import {Identity, Token} from "models";
 import {CustomerStore, IdentityStore} from "stores";
+
+import {ReactComponent as FacebookIcon} from "assets/icons/facebook.svg";
+import {ReactComponent as GoogleIcon} from "assets/icons/google.svg";
 
 import {
   FACEBOOK_APP_ID,
@@ -22,7 +27,8 @@ import {
   Status,
 } from "utilities";
 
-import * as styles from "./index.css";
+import * as styles from "components/app/SignLayout/index.css";
+import * as buttonStyles from "styles/buttons.css";
 
 interface Props extends RouteComponentProps<any> {
   className?: string;
@@ -136,119 +142,66 @@ export class SignUpForm extends React.Component<Props> {
     }
   };
 
-  private renderError() {
-    if (!this.errorMessage) return;
-
-    return (
-      <div className={styles.errorWrapper}>
-        {this.errorMessage
-          .split("; ")
-          .map(message => (
-            <div className="pt-callout pt-intent-danger pt-icon-cross">{message}</div>
-          ))}
-      </div>
-    );
-  }
+  private handleFormSubmit = (event: React.FormEvent<any>) => {
+    event.preventDefault();
+    this.submitCustomer(event);
+  };
 
   private renderForm() {
     return (
-      <div>
-        <div className={styles.columns}>
-          <label className="pt-label">
-            First name
-            <input
-              className="pt-input pt-fill pt-large"
-              type="text"
-              disabled={this.isLoading}
-              onChange={event => this.handleFieldChange("firstName", event.target.value)}
-              value={this.firstName}
-            />
-          </label>
-
-          <label className="pt-label">
-            Last name
-            <input
-              className="pt-input pt-fill pt-large"
-              type="text"
-              disabled={this.isLoading}
-              onChange={event => this.handleFieldChange("lastName", event.target.value)}
-              value={this.lastName}
-            />
-          </label>
+      <form className={styles.form} onSubmit={this.handleFormSubmit}>
+        <div className={styles.formHeading}>
+          <h2 className={styles.formHeadingTitle}>Welcome</h2>
+          <p className={styles.formHeadingLead}>
+            Tell us&nbsp;a&nbsp;little about your skincare goals. It&nbsp;will take two minutes for
+            you to&nbsp;get on&nbsp;your way to&nbsp;great, carefree skin!
+          </p>
         </div>
 
-        <label className="pt-label">
-          Email
-          <input
-            className="pt-input pt-fill pt-large"
+        <div className={styles.formInputGroup}>
+          <FormInput
+            className={styles.formInput}
+            type="text"
+            placeholder="First name"
+            disabled={this.isLoading}
+            onChange={event => this.handleFieldChange("firstName", event.target.value)}
+            value={this.firstName}
+          />
+
+          <FormInput
+            className={styles.formInput}
+            type="text"
+            placeholder="Last name"
+            disabled={this.isLoading}
+            onChange={event => this.handleFieldChange("lastName", event.target.value)}
+            value={this.lastName}
+          />
+
+          <FormInput
+            className={styles.formInput}
             type="email"
+            placeholder="Email"
             disabled={this.isLoading}
             onChange={event => this.handleFieldChange("email", event.target.value)}
             value={this.email}
           />
-        </label>
 
-        <label className="pt-label">
-          Password
-          <input
-            className="pt-input pt-fill pt-large"
+          <FormInput
+            className={styles.formInput}
             type="password"
+            placeholder="Password"
             disabled={this.isLoading}
             onChange={event => this.handleFieldChange("password", event.target.value)}
             value={this.password}
           />
-        </label>
-      </div>
-    );
-  }
-
-  private renderLoadingOverlay() {
-    if (!this.isLoading) {
-      return;
-    }
-
-    return (
-      <div className={styles.overlay}>
-        <div className={styles.spinner}>
-          <Spinner />
         </div>
-      </div>
-    );
-  }
 
-  public render() {
-    return (
-      <form
-        className={styles.signUpForm}
-        onSubmit={event => {
-          event.preventDefault();
-          this.submitCustomer(event);
-        }}
-      >
-        <WelcomeDialog isOpen={this.isWelcomeDialogOpen} onClose={this.closeWelcomeDialog} />
+        <button className={classnames(buttonStyles.primary, buttonStyles.block)} type="submit">
+          Create an account
+        </button>
 
-        <h2 className={styles.heading}>Welcome</h2>
-        <p className={styles.description}>
-          Tell us a little about your skincare goals. It will take two minutes for you to get on
-          your way to great, carefree skin!
-        </p>
-
-        {this.renderForm()}
-
-        <FadeTransitionGroup>{this.renderError()}</FadeTransitionGroup>
-
-        <div className={styles.actions}>
-          <Button
-            className={["pt-intent-primary", "pt-large", styles.submit].join(" ")}
-            loading={this.isLoading}
-            rightIconName="arrow-right"
-            onClick={this.submitCustomer}
-            type="submit"
-          >
-            Next
-          </Button>
-
-          <div className={styles.socialActions}>
+        <div className={styles.formSocialGroup}>
+          <div className={styles.formSocialButton}>
             <FacebookLogin
               disableMobileRedirect={true}
               appId={FACEBOOK_APP_ID}
@@ -256,23 +209,39 @@ export class SignUpForm extends React.Component<Props> {
               fields=""
               callback={this.submitCustomer as any}
               size="small"
-              textButton={this.isLoading ? "" : "Sign up with Facebook"}
-              icon={this.isLoading ? <Spinner className="pt-small" /> : undefined}
-              cssClass={["pt-button", "pt-large", styles.facebookButton].join(" ")}
+              textButton={"Using Facebook"}
+              icon={<FacebookIcon />}
+              cssClass={classnames(buttonStyles.facebook, buttonStyles.block)}
             />
+          </div>
 
+          <div className={styles.formSocialButton}>
             <GoogleLogin
               clientId={GOOGLE_CLIENT_ID}
               onSuccess={this.submitCustomer as any}
               onFailure={this.submitCustomer as any}
-              buttonText={this.isLoading ? "" : "Sign up with Google"}
-              className={["pt-button", "pt-large", styles.googleButton].join(" ")}
-            />
+              className={classnames(buttonStyles.google, buttonStyles.block)}
+            >
+              <GoogleIcon /> Using Google
+            </GoogleLogin>
           </div>
         </div>
-
-        <FadeTransitionGroup>{this.renderLoadingOverlay()}</FadeTransitionGroup>
       </form>
+    );
+  }
+
+  public render() {
+    return (
+      <SignLayout
+        headerType={HeaderType.SignIn}
+        errors={this.errorMessage ? this.errorMessage.split("; ") : undefined}
+        isLoading={this.isLoading}
+      >
+        {this.renderForm()}
+
+        {/* TODO: Needs to rework */}
+        <WelcomeDialog isOpen={this.isWelcomeDialogOpen} onClose={this.closeWelcomeDialog} />
+      </SignLayout>
     );
   }
 }

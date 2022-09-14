@@ -1,7 +1,7 @@
 # EllaMD: UI
 This repository houses the web-based EllaMD application UI. This UI interacts with the API housed in the `ellamd-api` repository.
 
-> **Note:** This README isn't fully fleshed out and documentation (i.e. JSDoc comments) is currently behind. Reach out to @kamkha with questions about the repository.
+> **Note:** This README isn't fully fleshed out and documentation (i.e. JSDoc comments) is currently behind.
 
 ## Quickstart
 | Command        | Description |
